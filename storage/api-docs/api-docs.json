@@ -1,0 +1,339 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Coding Collective Test",
+        "version": "0.1"
+    },
+    "paths": {
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "Login"
+                ],
+                "summary": "User Login",
+                "description": "User Login here",
+                "operationId": "Login",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "text"
+                                    },
+                                    "password": {
+                                        "type": "password"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Login Successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorised"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/api/candidate": {
+            "get": {
+                "tags": [
+                    "Get All Candidate"
+                ],
+                "summary": "Get All Candidate",
+                "description": "Get All Candidate here",
+                "operationId": "CandidateGetAll",
+                "responses": {
+                    "200": {
+                        "description": "Candidate List",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Unauthorised"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Store Candidate"
+                ],
+                "summary": "Store Candidate",
+                "description": "Store Candidate here",
+                "operationId": "StoreCandidate",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "experience",
+                                    "education",
+                                    "bod",
+                                    "last_position",
+                                    "applied_position",
+                                    "skills",
+                                    "email",
+                                    "phone",
+                                    "resume"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "text"
+                                    },
+                                    "experience": {
+                                        "type": "number"
+                                    },
+                                    "education": {
+                                        "type": "text"
+                                    },
+                                    "bod": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "last_position": {
+                                        "type": "text"
+                                    },
+                                    "applied_position": {
+                                        "type": "text"
+                                    },
+                                    "skills": {
+                                        "type": "text"
+                                    },
+                                    "email": {
+                                        "type": "text"
+                                    },
+                                    "phone": {
+                                        "type": "text"
+                                    },
+                                    "resume": {
+                                        "type": "file"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Candidate Saved",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorised"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/api/candidate/1": {
+            "get": {
+                "tags": [
+                    "Get One Candidate"
+                ],
+                "summary": "Get One Candidate",
+                "description": "Get One Candidate here",
+                "operationId": "CandidateGetOne",
+                "responses": {
+                    "200": {
+                        "description": "Candidate List",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Unauthorised"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Delete One Candidate"
+                ],
+                "summary": "Delete One Candidate",
+                "description": "Delete One Candidate here",
+                "operationId": "CandidateDeleteOne",
+                "responses": {
+                    "200": {
+                        "description": "Candidate Deleted",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Unauthorised"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "patch": {
+                "tags": [
+                    "Update Candidate"
+                ],
+                "summary": "Update Candidate",
+                "description": "Update Candidate here",
+                "operationId": "UpdateCandidate",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "experience",
+                                    "education",
+                                    "bod",
+                                    "last_position",
+                                    "applied_position",
+                                    "skills",
+                                    "email",
+                                    "phone",
+                                    "resume"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "text"
+                                    },
+                                    "experience": {
+                                        "type": "number"
+                                    },
+                                    "education": {
+                                        "type": "text"
+                                    },
+                                    "bod": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "last_position": {
+                                        "type": "text"
+                                    },
+                                    "applied_position": {
+                                        "type": "text"
+                                    },
+                                    "skills": {
+                                        "type": "text"
+                                    },
+                                    "email": {
+                                        "type": "text"
+                                    },
+                                    "phone": {
+                                        "type": "text"
+                                    },
+                                    "resume": {
+                                        "type": "file"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Candidate Saved",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorised"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "passport": {
+                "type": "http",
+                "name": "passport",
+                "in": "header",
+                "bearerFormat": "Passport",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "security": {
+        "passport": {
+            "type": "oauth2",
+            "description": "Laravel passport oauth2 security.",
+            "in": "header",
+            "scheme": "https",
+            "flows": {
+                "password": {
+                    "authorizationUrl": "http://passport-tutorial.test/oauth/authorize",
+                    "tokenUrl": "http://passport-tutorial.test/oauth/token",
+                    "refreshUrl": "http://passport-tutorial.test/token/refresh",
+                    "scopes": []
+                }
+            }
+        }
+    }
+}
